@@ -34,7 +34,9 @@ This module includes three parts, which are **Motion capture**, **Eye tracking**
 - Launch SteamVR and make sure the headset and all the controllers are properly paired. Do a room setup in steamVR if the objects appear wrongly posed.
 - Hit play in Unity, you should be able to see the trackers and the headset tracks properly.
 
-![tracker_demo](Demo/tracker_demo.gif)
+<p align="center">
+  <img src="Demo/tracker_demo.gif" width="540" height="320" />
+</p>
 
 ## 2. Eye Tracking
 
@@ -43,17 +45,24 @@ Eye tracking is provided by HTC VIVE Pro headset which helps track the real-time
 ### 1). Obtain Pixel Coordinates
 In the world coordinate system, we attach Main Camera to the origin(0,0,0), and canvas is set to (0,0,100). Vector of gaze is provided by SDK of VIVE in C# script. We hereby design such an algorithm that we get the coordinate of the intersect point **P** between gaze ray and canvas, and then we can calculate the screen coordinates of **P** in pixel unit by comparing the relative position to the bottom left corner point and also the width & height of the image.  
 
-![pixel_demo](Demo/pixel_coordinates.gif)
+<p align="center">
+  <img src="Demo/pixel_coordinates.gif" width="640"/>
+</p>
+
 
 ### 2). Calculate Gaze Time 
 For this function, we have set a range denoted by the input x and y to represent the region where we think the user is staring at an object in a concentrate way without his/her gaze moving out of the region. Once his/her gaze is at a valid position in the image, we begin to calculate the gaze time. And once his/her eyes move out of the region, we will recalculate it right then.
 
-![gazeTime_demo](Demo/gaze_time.gif)
+<p align="center">
+  <img src="Demo/gaze_time.gif" width="640"/>
+</p>
 
 ### 3). Debugger Mode
 This additional function is provided to either display or hide other functions effect on the image, which we consider to be a way of debugging the gaze module. You can manipulate it by pressing **G** for hiding/showing gaze ray, **P** for hiding/showing pixel coordinates and **T** for hiding/showing gaze time duration. 
 
-![debugger_demo](Demo/debugger.gif)
+<p align="center">
+  <img src="Demo/debugger.gif" width="640"/>
+</p>
 
 
 ## 3. Multi-Camera Switch
@@ -63,7 +72,9 @@ In the RealSense Canvas item, the gameobject identifies each camera interface wi
 ### 1). Keyboard Switch
 The method is implemented through pressing the key 'H','L','R','C','W' on keyboard to switch to 'Head','Left-Hand','Right-Hand','Clavicle' and 'World' Camera accordingly each at a time after running the whole program.
 
-![cameraSwitch_demo](Demo/camera_switch.gif)
+<p align="center">
+  <img src="Demo/camera_switch.gif" width="640"/>
+</p>
 
 ### 2). Speech Control Switch
 We use speech SDK provided by Unity. The candidate speech words are: 'Head','Left','Right','Clavicle' and 'World', which cater to different cameras correspondingly. And there're two steps you may have to follow to so that you can implement it successfully:
@@ -73,5 +84,7 @@ We use speech SDK provided by Unity. The candidate speech words are: 'Head','Lef
 #### ii). Open Unity Project, select **"File" --> "Build Settings" --> "Universal Windows Platform" --> "Player Settings" --> "Publishing Settings" --> "Capabilities" --> "Mircophone"** and tick it.
 
 
+<p align="center">
+  <img src="Demo/settings.png" width="640"/>
+</p>
 
-![settings_demo](Demo/settings.gif)
