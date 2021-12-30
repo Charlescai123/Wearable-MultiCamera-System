@@ -1,4 +1,4 @@
-﻿# Wearable-Multi-camera-System
+# Wearable-Multi-camera-System
 
 This wearable camera system consists of HTC VIVE VR headset, trackers and Realsense RGB-D Cameras. It can be used for **human motion capture**, to **track human gaze input** (if you have VIVE Pro Eye), to **provide camera stream from various Realsense cameras**, or any combination of these modules.
 
@@ -43,24 +43,27 @@ Eye tracking is provided by HTC VIVE Pro headset which helps track the real-time
 ### 1). Obtain Pixel Coordinates
 In the world coordinate system, we attach Main Camera to the origin(0,0,0), and canvas is set to (0,0,100). Vector of gaze is provided by SDK of VIVE in C# script. We hereby design such an algorithm that we get the coordinate of the intersect point **P** between gaze ray and canvas, and then we can calculate the screen coordinates of **P** in pixel unit by comparing the relative position to the bottom left corner point and also the width & height of the image.  
 
+![pixel_demo](Demo/pixel_coordinates.gif)
+
 ### 2). Calculate Gaze Time 
 For this function, we have set a range denoted by the input x and y to represent the region where we think the user is staring at an object in a concentrate way without his/her gaze moving out of the region. Once his/her gaze is at a valid position in the image, we begin to calculate the gaze time. And once his/her eyes move out of the region, we will recalculate it right then.
 
-
+![gazeTime_demo](Demo/gaze_time.gif)
 
 ### 3). Debugger Mode
 This additional function is provided to either display or hide other functions effect on the image, which we consider to be a way of debugging the gaze module. You can manipulate it by pressing **G** for hiding/showing gaze ray, **P** for hiding/showing pixel coordinates and **T** for hiding/showing gaze time duration. 
 
-
-
-![eye_tracking_demo](Demo/eye_track_demo.gif)
+![debugger_demo](Demo/debugger.gif)
 
 
 ## 3. Multi-Camera Switch
 In the RealSense Canvas item, the gameobject identifies each camera interface with the series number on it and all frames are collected by RealSense cameras into an all-in-one canvas. We implement camera switch by enabling the choosen camera object while blocking the rest in the meanwhile. In order to use the interface, you have to download [package](https://github.com/IntelRealSense/librealsense/releases/download/v2.50.0/Intel.RealSense.unitypackage) provided by RealSense and import it to the assets through **"Assets" --> "Import Package --> Custom Package..."**. Additionally, we designed two ways to switch frames displayed on canvas from these multiple cameras, one of which is to press button and another one is via speech.
 
+
 ### 1). Keyboard Switch
 The method is implemented through pressing the key 'H','L','R','C','W' on keyboard to switch to 'Head','Left-Hand','Right-Hand','Clavicle' and 'World' Camera accordingly each at a time after running the whole program.
+
+![cameraSwitch_demo](Demo/camera_switch.gif)
 
 ### 2). Speech Control Switch
 We use speech SDK provided by Unity. The candidate speech words are: 'Head','Left','Right','Clavicle' and 'World', which cater to different cameras correspondingly. And there're two steps you may have to follow to so that you can implement it successfully:
@@ -71,4 +74,4 @@ We use speech SDK provided by Unity. The candidate speech words are: 'Head','Lef
 
 
 
-![Multicamera_demo](Demo/MultiCamera_Switch.gif)
+![settings_demo](Demo/settings.gif)
