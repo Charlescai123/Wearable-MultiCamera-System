@@ -6,7 +6,7 @@ This wearable camera system consists of HTC VIVE VR headset, trackers and Realse
   <img src="Demo/framework.jpg" width="480" height="640" />
 </p>
 
-## Setup
+# Setup
 
 This repository is tested in Unity 2020+, but other Unity version should work as well.
 
