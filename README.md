@@ -2,6 +2,10 @@
 
 This wearable camera system consists of HTC VIVE VR headset, trackers and Realsense RGB-D Cameras. It can be used for **human motion capture**, to **track human gaze input** (if you have VIVE Pro Eye), to **provide camera stream from various Realsense cameras**, or any combination of these modules.
 
+<p align="center">
+  <img src="Demo/framework.jpg" width="480" height="640" />
+</p>
+
 ## Setup
 
 This repository is tested in Unity 2020+, but other Unity version should work as well.
